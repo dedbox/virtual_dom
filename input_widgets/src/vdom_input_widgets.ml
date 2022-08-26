@@ -818,7 +818,7 @@ module Entry = struct
         ~default:((new%js Js_of_ocaml.Js.date_now)##getTimezoneOffset / -60)
         ~f:(fun utc_offset -> Time_ns.Span.to_hr utc_offset |> Float.to_int)
     in
-    let (module Zoned_time) = Time_compat.zoned (Time_float.Zone.of_utc_offset ~hours) in
+    let (module Zoned_time) = Time_compat.zoned (Time.Zone.of_utc_offset ~hours) in
     stringable_input_opt
       ?extra_attrs
       ?call_on_input_when
